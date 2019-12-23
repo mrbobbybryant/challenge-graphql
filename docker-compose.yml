@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: challenge_db
+      LANGUAGE: en_US:en
+    volumes:
+      - ./pgdata:/var/lib/postgres/data
+    ports:
+      - '5433:5432'
+  redis:
+    image: redis:3.2.11-alpine
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis-data:/data
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.2.4
+    environment:
+      - xpack.security.enabled=false
+    ports:
+      - '9200:9200'
+    volumes:
+      - elasticsearch-data:/usr/share/elasticsearch/data
+  rabbitmq:
+    image: rabbitmq:3.7.8-management-alpine
+    hostname: rabbit1
+    environment:
+      RABBITMQ_ERLANG_COOKIE: 'secret string'
+      RABBITMQ_NODENAME: rabbit1
+    ports:
+      - '4369:4369'
+      - '5671:5671'
+      - '5672:5672'
+      - '15671:15671'
+      - '15672:15672'
+
+volumes:
+  redis-data:
+  elasticsearch-data:

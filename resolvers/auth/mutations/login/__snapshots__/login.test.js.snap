@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`email login Tests Should work. 1`] = `
+Object {
+  "email": "bobby@crossfield.com",
+  "id": 1,
+  "jwt": "IOIJIO",
+  "password": "1234",
+}
+`;
