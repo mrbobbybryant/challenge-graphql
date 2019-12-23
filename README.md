@@ -2,10 +2,6 @@
 
 [Docker](https://docs.docker.com/docker-for-mac/install/) - Installation for Docker
 
-- Type some Markdown on the left
-- See HTML in the right
-- Magic
-
 # Setup
 
 _This project is setup to be a fully contained project. Meaning that other than Docker, Node, and NPM, you shouldn't need anything else installed to run this project locally._
