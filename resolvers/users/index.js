@@ -124,8 +124,9 @@ const resolvers = {
   Query: {
     getUsers: (parent, args, context, info) =>
       adminAuth(parent, args, context, info, getUsers),
-    getUser: (parent, args, context, info) =>
-      adminAuth(parent, args, context, info, getUser),
+    // getUser: (parent, args, context, info) =>
+    //   adminAuth(parent, args, context, info, getUser),
+    getUser,
     getAllUsers: (parent, args, context, info) =>
       adminAuth(parent, args, context, info, getAllUsers),
     test: (parent, args, context, info) =>

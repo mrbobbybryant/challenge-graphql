@@ -11,8 +11,9 @@ import GraphQLTime from 'types/time';
 import users from './users';
 import auth from './auth';
 import images from './images';
+import projects from './projects'
 
-const resolvers = [users, auth, images];
+const resolvers = [users, auth, images, projects];
 
 export const typeDefs = [
   ...resolvers.map(resolver => resolver.typeDefs),

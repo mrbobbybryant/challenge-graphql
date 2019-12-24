@@ -10,6 +10,10 @@ export default gql`
     getUser(id: Int!): User
     getAllUsers: [User]
     test: Boolean
+
+    #projects
+    myProjects: [Project]
+    projectsByUser(id: Int!) : [Project]
   }
 
   type Mutation {
@@ -31,6 +35,9 @@ export default gql`
     #Images
     singleUpload(file: Upload!): File
     deleteUpload(id: Int!): Boolean
+
+    #Projects
+    createProject(input: CreateProjectInput!) : Boolean
   }
 
   type Rules {

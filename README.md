@@ -7,8 +7,8 @@
 _This project is setup to be a fully contained project. Meaning that other than Docker, Node, and NPM, you shouldn't need anything else installed to run this project locally._
 
 - Open a tab in your comsole and run `docker-compose up`
-- In another tab run `knex migrate:latest`
 - Next run `npm install`
+- In another tab run `knex migrate:latest`
 - Finally run `npm run dev`
 
 # Notes & Tips
