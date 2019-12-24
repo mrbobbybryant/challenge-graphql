@@ -2,7 +2,7 @@ import Project from 'models/projects'
 
 export default async (
     _,
-    { input: { token, name, description } },
+    { input: { name, description } },
     { user },
   ) => {
     if (!user) {

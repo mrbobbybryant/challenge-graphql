@@ -1,10 +1,15 @@
 import { gql } from 'apollo-server-express';
-import { adminAuth } from 'shared/authenticated';
+import  getUser from '../users/queries/get-user';
+
+
 
 //Mutations
 import createProject from './mutations/create-project'
 
 //Queries
+import myProjects from './queries/my-projects'
+import projectsByUser from './queries/projects-by-user'
+
 
 const typeDefs = gql`
     type Project {
@@ -12,6 +17,7 @@ const typeDefs = gql`
         name: String!
         description: String
         user_id: Int!
+        user: User
     }
 
     type ProjectList {
@@ -23,12 +29,21 @@ const typeDefs = gql`
         name: String!
         description: String
     }
+
 `
 
 const resolvers = {
+    Query:{
+        myProjects,
+        projectsByUser
+    },
     Mutation:{
-        createProject: (parent, args, context, info) =>
-        createProject(parent, args, context, info)
+        createProject
+    },
+    Project: {
+         user(parent){
+            return getUser({}, {id: parent.user_id})
+        }
     }
 }
 

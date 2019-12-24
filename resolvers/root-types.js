@@ -1,15 +1,5 @@
 import { gql } from 'apollo-server-express';
 
-// You need to create a new set resolver called projects. Specifically you need to:
-
-// Create a mutation for creating a new project
-// Only logged in users should be able to create a project.
-// The name of the project should be "required" in the graphql schema.
-// The current user should be set as the user_id or owner for that project.
-// Create a query to fetch all projects for a user
-// Should only return that user's projects
-// The Project type that you create should have a user field that allows you to fetch the User type.
-
 export default gql`
   type Query {
     #Users
@@ -22,6 +12,8 @@ export default gql`
     test: Boolean
 
     #projects
+    myProjects: [Project]
+    projectsByUser(id: Int!) : [Project]
   }
 
   type Mutation {

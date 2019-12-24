@@ -16,6 +16,10 @@ export const get = async id => {
     .first();
 };
 
+export const getProjectByUserId = async user_id => {
+  return await Project.query().where('user_id', user_id);
+};
+
 export const update = async (id, input) => {
   return await Project.query()
     .where({ id })
@@ -29,6 +33,7 @@ export const del = async id => {
 };
 
 Project.get = get;
+Project.getByUserId = getProjectByUserId;
 Project.create = create;
 Project.update = update;
 Project.delete = del;
